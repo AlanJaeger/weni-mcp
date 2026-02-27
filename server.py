@@ -19,16 +19,15 @@ async def get_conversation_totals(
     start_date: str,
     end_date: str,
 ) -> str:
-    """Busca métricas totais de conversas de um projeto Weni em um período.
+    """Fetches total conversation metrics for a Weni project within a given period.
 
-    Retorna total de conversas, quantas foram resolvidas,
-    não resolvidas e transferidas para atendimento humano,
-    com valores absolutos e percentuais.
+    Returns total conversations, resolved, unresolved, and transferred
+    to human support, with absolute values and percentages.
 
     Args:
-        project_uuid: UUID do projeto Weni.
-        start_date: Data de início no formato YYYY-MM-DD.
-        end_date: Data de fim no formato YYYY-MM-DD.
+        project_uuid: Weni project UUID.
+        start_date: Start date in YYYY-MM-DD format.
+        end_date: End date in YYYY-MM-DD format.
     """
     async with httpx.AsyncClient() as client:
         response = await client.get(
